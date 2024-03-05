@@ -38,19 +38,20 @@ st.set_page_config(page_title="Gemini Health App")
 st.header("Bite Buddy")
 uploaded_file = None
 open_cam = st.button("📷 Toggle Camera", on_click=click_button)
+st.markdown("or")
+uploaded_file = st.file_uploader("Choose a food image..", type=["jpg", "jpeg", "png"])
 if st.session_state.button:
     uploaded_file = st.camera_input("Take a picture")
 
 # if uploaded_file:
 #     st.image(uploaded_file)
-# uploaded_file = st.file_uploader("Choose an image..", type=["jpg", "jpeg", "png"])
 image = None  # Initialize image variable to None
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
-submit = st.button("Tell me about Calories")
+submit = st.button("Tell me about Calories", type="primary")
 
 input_prompt = """
 You are an expert in nutritionist where you need to see the food items from the image
