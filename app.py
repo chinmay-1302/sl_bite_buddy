@@ -37,7 +37,7 @@ st.set_page_config(page_title="Gemini Health App")
 
 st.header("Bite Buddy")
 uploaded_file = None
-open_cam = st.button("Toggle Camera", on_click=click_button)
+open_cam = st.button("📷 Toggle Camera", on_click=click_button)
 if st.session_state.button:
     uploaded_file = st.camera_input("Take a picture")
 
