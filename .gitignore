@@ -1,3 +1,4 @@
 bite-buddy.py
 uber_pickups.py
 .env
+*.toml

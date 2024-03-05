@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 
 load_dotenv()  # for loading all the .env or environment variables
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 def get_gemini_response(input_prompt, image):
     model = genai.GenerativeModel('gemini-pro-vision')
