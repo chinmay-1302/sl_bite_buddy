@@ -12,6 +12,12 @@ def get_gemini_response(input_prompt, image):
     response = model.generate_content([input_prompt, image[0]])
     return response.text
 
+if 'button' not in st.session_state:
+    st.session_state.button = False
+
+def click_button():
+    st.session_state.button = not st.session_state.button
+
 def input_image_setup(uploaded_file):
     if uploaded_file is not None:
         bytes_data = uploaded_file.getvalue()
@@ -30,7 +36,11 @@ def input_image_setup(uploaded_file):
 st.set_page_config(page_title="Gemini Health App")
 
 st.header("Bite Buddy")
-uploaded_file = st.camera_input("Take a picture")
+uploaded_file = None
+open_cam = st.button("Toggle Camera", on_click=click_button)
+if st.session_state.button:
+    uploaded_file = st.camera_input("Take a picture")
+
 # if uploaded_file:
 #     st.image(uploaded_file)
 # uploaded_file = st.file_uploader("Choose an image..", type=["jpg", "jpeg", "png"])
