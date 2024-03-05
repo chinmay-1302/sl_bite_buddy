@@ -30,7 +30,10 @@ def input_image_setup(uploaded_file):
 st.set_page_config(page_title="Gemini Health App")
 
 st.header("Bite Buddy")
-uploaded_file = st.file_uploader("Choose an image..", type=["jpg", "jpeg", "png"])
+uploaded_file = st.camera_input("Take a picture")
+# if uploaded_file:
+#     st.image(uploaded_file)
+# uploaded_file = st.file_uploader("Choose an image..", type=["jpg", "jpeg", "png"])
 image = None  # Initialize image variable to None
 
 if uploaded_file is not None:
